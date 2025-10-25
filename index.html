@@ -1,10 +1,72 @@
-<model-viewer
-  src="assets/turbine.glb"
-  ar
-  ar-modes="webxr scene-viewer quick-look"
-  camera-controls
-  auto-rotate
-  shadow-intensity="1"
-  environment-image="neutral"
-  style="width:100%; height:100vh; background-color:black;"
-></model-viewer>
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR Turbine Demo</title>
+
+    <!-- Подключаем библиотеку Google Model Viewer -->
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js">
+    </script>
+
+    <style>
+      html, body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        background: #000;
+        font-family: Arial, sans-serif;
+      }
+
+      model-viewer {
+        width: 100%;
+        height: 100vh;
+        --poster-color: transparent;
+      }
+
+      .title {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: white;
+        font-size: 18px;
+        background: rgba(0,0,0,0.4);
+        padding: 6px 12px;
+        border-radius: 8px;
+      }
+
+      .hint {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255,255,255,0.8);
+        font-size: 14px;
+        background: rgba(0,0,0,0.5);
+        padding: 6px 12px;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="title">AR модель турбины</div>
+
+    <model-viewer
+      src="assets/turbine.glb"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      camera-controls
+      auto-rotate
+      rotation-per-second="30deg"
+      environment-image="neutral"
+      shadow-intensity="1"
+      exposure="1.1"
+      alt="3D модель турбины">
+    </model-viewer>
+
+    <div class="hint">Нажмите “View in your space”, чтобы включить камеру 📱</div>
+  </body>
+</html>
